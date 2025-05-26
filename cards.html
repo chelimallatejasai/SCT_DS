@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Paws Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #DAFFBD;
+    }
+
+    h1 {
+      color: #2e99d1;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .pet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .pet-box {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+
+    .pet-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .pet-box img {
+      width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .pet-box h3 {
+      margin: 10px 0 5px;
+      color: #2e99d1;
+    }
+
+    .pet-box p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Happy Paws</h1>
+  <p>Explore our adorable pets and available items at our store!</p>
+
+  <div class="pet-grid">
+    <div class="pet-box">
+      <img src="https://source.unsplash.com/300x200/?dog,puppy" alt="Puppy">
+      <h3>Golden Retriever</h3>
+      <p>Friendly, loyal, and great with kids. Perfect family dog.</p>
+    </div>
+    <div class="pet-box">
+      <img src="https://source.unsplash.com/300x200/?cat" alt="Cat">
+      <h3>Persian Cat</h3>
+      <p>Elegant and calm companion. Low maintenance and affectionate.</p>
+    </div>
+    <div class="pet-box">
+      <img src="https://source.unsplash.com/300x200/?parrot" alt="Parrot">
+      <h3>Green Parrot</h3>
+      <p>Colorful and talkative bird, easy to train and very intelligent.</p>
+    </div>
+    <div class="pet-box">
+      <img src="https://source.unsplash.com/300x200/?rabbit" alt="Rabbit">
+      <h3>White Rabbit</h3>
+      <p>Soft, quiet and easy to care for. Great for apartment life.</p>
+    </div>
+    <div class="pet-box">
+      <img src="https://source.unsplash.com/300x200/?fish" alt="Fish">
+      <h3>Aquarium Fish</h3>
+      <p>Brighten your room with calm and beautiful freshwater fish.</p>
+    </div>
+    <div class="pet-box">
+      <img src="https://source.unsplash.com/300x200/?turtle" alt="Turtle">
+      <h3>Pet Turtle</h3>
+      <p>Peaceful and easygoing friend. Great for beginners.</p>
+    </div>
+  </div>
+</body>
+</html>

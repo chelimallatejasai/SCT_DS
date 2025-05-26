@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image:url(bg.jpeg);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: grid;
+      height: 100vh;
+      place-items: center;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      width: 90vw;
+      height: 90vh;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .signup, .login-side {
+      display: grid;
+      place-content: center;
+      padding: 40px;
+      height: 100%;
+      text-align: center;
+    }
+
+    .signup {
+      background-image: url('bg.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .signup h2 {
+      margin-bottom: 20px;
+      color: #2e99d1;
+      font-size: 26px;
+    }
+
+    .signup input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 260px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .signup input:focus {
+      border-color: #2e99d1;
+      box-shadow: 0 0 8px rgba(46, 153, 209, 0.4);
+      outline: none;
+    }
+
+    .signup input:hover {
+      box-shadow: 0 0 25px 5px rgba(46, 153, 209, 0.6);
+      transform: scale(1.05);
+    }
+
+    .signup button {
+      padding: 14px;
+      background-color: #2e99d1;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 260px;
+      font-size: 17px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .signup button:hover {
+      background-color: #2179a0;
+      box-shadow: 0 4px 12px rgba(33, 121, 160, 0.4);
+    }
+
+    .signup img {
+      width: 120px;
+      margin: 0 auto 20px auto;
+      display: block;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .signup img:hover {
+      box-shadow: 0 0 25px 10px rgba(46, 153, 209, 1);
+    }
+
+    .login-side {
+      background-color: #2e99d1;
+      color: white;
+      text-align: center;
+    }
+
+    .login-side h2 {
+      font-size: 26px;
+    }
+
+    .login-side p {
+      font-size: 16px;
+      margin: 20px 0;
+    }
+
+    .login-side button {
+      padding: 14px 28px;
+      background-color: white;
+      color: #2e99d1;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .login-side button:hover {
+      background-color: #d0f0ff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <!-- Sign-Up Form Section -->
+    <div class="signup">
+      <form action="/signup" method="POST">
+        <img src="log.png" alt="Happy Paws Logo">
+        <h2>Create Your Account</h2>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="mobile" placeholder="Mobile Number" required>
+        <input type="text" name="country" placeholder="Country" required>
+        <input type="text" name="city" placeholder="City" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Login Redirect Section -->
+    <div class="login-side">
+      <h2>Already a Member?</h2>
+      <p>Welcome back! Click below to login.</p>
+      <button onclick="window.location.href='login.html'">LOGIN</button>
+    </div>
+  </div>
+</body>
+</html>

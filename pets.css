@@ -1,0 +1,348 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+    }
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide.active {
+      display: block;
+    }
+
+    .logo {
+      position: absolute;
+      left: 45%;
+      bottom: 60%;
+      z-index: 10;
+    }
+    .logo img {
+      height: 150px;
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 5;
+    }
+    .slide-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 10px #000;
+    }
+    .slide-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 8px #000;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .dot.active {
+      background-color: #2e99d1;
+    }
+    @media (max-width: 600px) {
+      .slide-content h1 {
+        font-size: 2rem;
+      }
+
+      .slide-content p {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+
+    }
+    .logo img {
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 px 1px rgba(46, 153, 209, 1);
+    
+}
+.logo img:hover {
+    box-shadow: 0 0 25px 10px rgba(46, 153, 209, 1);
+}
+.sidebar {
+      position: fixed;
+      top: 0;
+      left: -220px;
+      width: 220px;
+      height: 100vh;
+      background-color: #2e99d1;
+      color: white;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+      transition: left 0.3s ease;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      padding: 15px 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      background-color: #2179a0;
+      border-radius: 4px;
+    }
+
+    /* Toggle Button */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      width: 35px;
+      height: 30px;
+      z-index: 1100;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-btn div {
+      height: 4px;
+      background: #2e99d1;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-btn.active div:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-btn.active div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Content */
+    .content {
+      padding: 40px 20px 20px 20px;
+      transition: margin-left 0.3s ease;
+      margin-left: 0;
+    }
+
+    .content.shift {
+      margin-left: 220px;
+    }
+
+    .content h1 {
+      color: #2e99d1;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+  .pet-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 30px;
+}
+
+.pet-column {
+  background-color: #111;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(46, 153, 209, 0.3);
+  transition: transform 0.3s ease;
+}
+.pet-column:hover {
+  transform: scale(1.01);
+}
+
+.pet-column h2 {
+  text-align: center;
+  color: #2e99d1;
+  margin-bottom: 20px;
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.pet-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.pet-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(46, 153, 209, 0.5);
+}
+
+.pet-box img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pet-box h3 {
+  margin: 5px 0;
+  color: #2e99d1;
+}
+
+@media (max-width: 768px) {
+  .pet-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pet-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 250px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.pet-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.pet-box:hover img {
+  transform: scale(1.1);
+}
+
+.pet-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.pet-box:hover .pet-info {
+  transform: translateY(0);
+}
+
+.pet-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2e99d1;
+}
+
+.pet-info p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+}
+
+
+#adoption-section {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.adoption-form input,
+.adoption-form button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.adoption-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.adoption-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.pet-card {
+  min-width: 180px;
+  padding: 15px;
+  background: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  text-align: center;
+}

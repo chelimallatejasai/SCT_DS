@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Paws Dashboard</title>
+  <link href="pets.css">
+   <link rel="stylesheet" href="pets.css" />
+</head>
+</head>
+<script>
+  // Load pets from server
+  fetch('/get-pets')
+    .then(res => res.json())
+    .then(pets => {
+      const scrollContainer = document.querySelector('.adoption-scroll');
+      const petSelect = document.getElementById('petSelect');
+
+      pets.forEach(pet => {
+        // Add card
+        const card = document.createElement('div');
+        card.className = 'pet-card';
+        card.innerHTML = `
+          <img src="${pet.image}" alt="${pet.name}" />
+          <h4>${pet.name}</h4>
+          <p>${pet.type} - ${pet.breed}</p>
+        `;
+        scrollContainer.appendChild(card);
+
+        // Add to dropdown
+        const option = document.createElement('option');
+        option.value = pet.id;
+        option.text = `${pet.name} (${pet.type})`;
+        petSelect.appendChild(option);
+      });
+    });
+</script>
+
+<body>
+
+  <div class="logo">
+    <img src="log.png" alt="Happy Paws Logo">
+  </div>
+  <div class="slideshow-container">
+    <div class="slide active">
+      <img src="hero1.webp" alt="Slide 1">
+      <div class="slide-content">
+        <h1>Welcome to Happy Paws</h1>
+        <p>Your one-stop destination for loving pet care.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="hero2.png" alt="Slide 2">
+      <div class="slide-content">
+        <h1>Book Vet Appointments</h1>
+        <p>Easy scheduling and reminders at your fingertips.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="hero3.jpg" alt="Slide 3">
+      <div class="slide-content">
+        <h1>Adopt & Love</h1>
+        <p>Find your furry friend and bring them home today.</p>
+      </div>
+    </div>
+
+    <div class="dots">
+      <span class="dot active" onclick="showSlide(0)"></span>
+      <span class="dot" onclick="showSlide(1)"></span>
+      <span class="dot" onclick="showSlide(2)"></span>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        dots[i].classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentIndex = index;
+    }
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+    setInterval(autoSlide, 5000); // 5 seconds
+  </script>
+   <div class="menu-btn" id="menu-btn">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Pets</a></li>
+            <li><a href="adoption-section">Adoption</a></li>
+
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content" id="content">
+    <h1><center>Welcome to Happy Paws</h1></center>
+   <h1 style="text-align:center;">Meet Our Lovely Pets</h1>
+<div class="pet-section">
+  <!-- Dogs Section -->
+  <div class="pet-column">
+    <h2>🐶 Dogs</h2>
+    <div class="pet-grid">
+      <div class="pet-box">
+        <img src="pet1.jpg" alt="Dog 1">
+         <div class="pet-info">
+        <h3>Bruno</h3>
+        <p>Beagle</p>
+      </div></div>
+      <div class="pet-box">
+        <img src="pet2.jpg" alt="Dog 2">
+                 <div class="pet-info">
+
+        <h3>Max</h3>
+        <p>Golden Retriever</p>
+      </div></div>
+      <div class="pet-box">
+        <img src="pet3.jpg" alt="Dog 3">
+                 <div class="pet-info">
+
+        <h3>Rocky</h3>
+        <p>Labrador</p>
+      </div></div>
+      <div class="pet-box">
+        <img src="pet4.jpg" alt="Dog 4">
+                 <div class="pet-info">
+
+        <h3>Rocky</h3>
+        <p>Labrador</p>
+      </div></div>
+      <!-- Add this inside the dog section below the 4 already present -->
+<div class="pet-box">
+  <img src="pet5.jpg" alt="Dog 5">
+  <div class="pet-info">
+    <h3>Buddy</h3>
+    <p>Husky</p>
+  </div>
+</div>
+<div class="pet-box">
+  <img src="pet6.jpg" alt="Dog 6">
+  <div class="pet-info">
+    <h3>Charlie</h3>
+    <p>Dalmatian</p>
+  </div>
+</div>
+<a href="dogs.html" class="view-more-btn">View More Dogs</a>
+
+      
+    </div>
+  </div>
+
+  <!-- Cats Section -->
+  <div class="pet-column">
+    <h2>🐱 Cats</h2>
+    <div class="pet-grid">
+      <div class="pet-box">
+        <img src="cat1.jpg" alt="Cat 1">
+        <div class="pet-info">
+        <h3>Fluffy</h3>
+        <p>Persian</p>
+      </div></div>
+      <div class="pet-box">
+        <img src="cat2.jpg" alt="Cat 2"><div class="pet-info">
+        <h3>Misty</h3>
+        <p>Siamese</p>
+      </div></div>
+      <div class="pet-box">
+        <img src="cat3.jpg" alt="Cat 3"><div class="pet-info">
+        <h3>Snow</h3>
+        <p>Maine Coon</p>
+      </div></div>
+      <div class="pet-box">
+        <img src="cat3.jpg" alt="Cat 4"><div class="pet-info">
+        <h3>Snow</h3>
+        <p>Maine Coon</p>
+      </div></div>
+      <div class="pet-box">
+  <img src="cat4.jpg" alt="Cat 5"><div class="pet-info">
+  <h3>Luna</h3>
+  <p>British Shorthair</p>
+</div></div>
+<div class="pet-box">
+  <img src="cat5.jpg" alt="Cat 6"><div class="pet-info">
+  <h3>Simba</h3>
+  <p>Ragdoll</p>
+</div></div>
+<a href="cats.html" class="view-more-btn">View More Cats</a>
+    </div>
+  </div>
+</div>
+
+  </div>  
+<div id="adoption-section" style="padding: 20px;">
+  <h2 style="text-align: center;">🐾 Available for Adoption</h2>
+
+  <div class="adoption-scroll">
+    <!-- JS will populate pets here -->
+  </div>
+
+  <form action="/adopt" method="POST" class="adoption-form">
+    <h3>Adopt Your Favorite Pet</h3>
+    <input type="text" name="user_name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <select name="pet_id" required id="petSelect">
+      <option value="">Select a Pet</option>
+    </select>
+    <button type="submit">Submit Adoption Request</button>
+  </form>
+</div>
+
+
+  <!-- Toggle Sidebar Script -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+      content.classList.toggle('shift');
+    });
+    
+  </script>
+
+</body></html>
